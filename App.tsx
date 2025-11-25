@@ -292,7 +292,7 @@ function App() {
 }
 
 // Helper icons (simple SVG wrappers if Lucide import fails or for custom needs)
-const GlobeIcon = () => <Globe className="w-6 h-6" />;
-const DollarSignIcon = () => <DollarSign className="w-6 h-6" />;
+const GlobeIcon = ({ className = "" }: { className?: string }) => <Globe className={`w-6 h-6 ${className}`} />;
+const DollarSignIcon = ({ className = "" }: { className?: string }) => <DollarSign className={`w-6 h-6 ${className}`} />;
 
 export default App;
