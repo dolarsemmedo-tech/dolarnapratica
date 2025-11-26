@@ -1,37 +1,17 @@
 import React from 'react';
-import { Play, ShieldCheck, TrendingUp, Globe, Lock } from 'lucide-react';
+import { Play, ShieldCheck, Globe, Lock } from 'lucide-react';
 import { Button } from './ui/Button';
+import { ChartBackground } from './ui/ChartBackground';
 
 export const Hero: React.FC = () => {
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20 pb-20">
       
-      {/* Background Image (Real Property) - Low Opacity */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" 
-          alt="Luxury Property" 
-          className="w-full h-full object-cover opacity-10 grayscale mix-blend-overlay"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/95 to-brand-dark/90"></div>
-      </div>
+      {/* Componente de Fundo Animado */}
+      <ChartBackground />
 
-      {/* Animated Bars Background */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 md:h-96 flex items-end justify-center px-4 opacity-20 pointer-events-none gap-1 md:gap-3 z-0">
-         {Array.from({ length: 30 }).map((_, i) => (
-            <div 
-               key={i} 
-               className="w-full md:w-8 bg-emerald-500 rounded-t-sm"
-               style={{
-                  height: `${Math.random() * 50 + 10}%`,
-                  animation: `fluctuate ${Math.random() * 2 + 2}s ease-in-out infinite`,
-                  animationDelay: `${Math.random() * 2}s`
-               }}
-            ></div>
-         ))}
-      </div>
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center max-w-5xl">
+      {/* Conteúdo Principal */}
+      <div className="container mx-auto px-4 md:px-6 relative z-30 flex flex-col items-center text-center max-w-5xl">
           
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-emerald-500 text-xs font-bold uppercase tracking-wider mb-8 backdrop-blur-sm shadow-xl">
             Blindagem Patrimonial
