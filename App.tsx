@@ -28,7 +28,7 @@ function App() {
       <Section className="bg-[#0B1221]">
         <div className="text-center mb-12">
           <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">Cuidado</span>
-          <h2 className="text-3xl font-bold mt-2">Erros que atrapalham seu resultado</h2>
+          <h2 className="text-3xl font-bold mt-2:">Erros que atrapalham seu resultado:</h2>
           <p className="text-slate-400 mt-2">Veja adiante como resolver tudo isso de forma definitiva!</p>
         </div>
         <div className="space-y-4 max-w-3xl mx-auto">
@@ -281,10 +281,6 @@ function App() {
                 </p>
             </div>
             
-            {/* Sticky CTA Mobile */}
-            <div className="fixed bottom-4 left-4 right-4 md:hidden z-50">
-               <Button fullWidth className="shadow-2xl border-2 border-emerald-400">QUERO GARANTIR AGORA</Button>
-            </div>
         </div>
       </footer>
     </div>
