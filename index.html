@@ -33,11 +33,26 @@
             animation: {
               'float': 'float 6s ease-in-out infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'draw': 'draw 2s ease-in-out forwards',
+              'fade-in': 'fadeIn 1.5s ease-out forwards',
+              'candle': 'candle 3s ease-in-out infinite',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
+              },
+              draw: {
+                '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
+                '100%': { strokeDasharray: '1000', strokeDashoffset: '0' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              candle: {
+                '0%, 100%': { opacity: '0.2', height: '20px' },
+                '50%': { opacity: '0.6', height: '60px' },
               }
             }
           }
@@ -79,7 +94,6 @@
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "framer-motion": "https://esm.sh/framer-motion@10.16.4?external=react,react-dom",
     "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }

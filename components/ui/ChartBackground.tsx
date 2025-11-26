@@ -1,18 +1,16 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 export const ChartBackground: React.FC = () => {
   // Configuração das "velas" flutuantes
   const candles = Array.from({ length: 18 }).map((_, i) => ({
     id: i,
     left: `${Math.random() * 100}%`,
-    delay: Math.random() * 5,
-    duration: 3 + Math.random() * 4,
+    animationDelay: `${Math.random() * 5}s`,
+    animationDuration: `${3 + Math.random() * 4}s`,
     height: 20 + Math.random() * 60, // altura base em px
   }));
 
   // Definição do caminho do gráfico (curva financeira)
-  // Desenhado para um viewBox 0 0 100 100
   const pathD = "M0 80 C 20 75, 25 90, 40 60 S 60 70, 70 40 S 90 50, 100 20";
 
   return (
@@ -29,7 +27,7 @@ export const ChartBackground: React.FC = () => {
         }}
       />
 
-      {/* Camada 2: Gráfico de Linha Animado */}
+      {/* Camada 2: Gráfico de Linha Animado (CSS Puro) */}
       <div className="absolute inset-x-0 bottom-0 h-2/3 z-10 opacity-40">
         <svg 
           viewBox="0 0 100 100" 
@@ -44,24 +42,21 @@ export const ChartBackground: React.FC = () => {
           </defs>
           
           {/* Área preenchida (Fade In) */}
-          <motion.path
+          <path
             d={`${pathD} L 100 100 L 0 100 Z`}
             fill="url(#chartGradient)"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="animate-fade-in opacity-0"
           />
 
-          {/* Linha desenhando (Draw animation) */}
-          <motion.path
+          {/* Linha desenhando (Draw animation via stroke-dasharray) */}
+          <path
             d={pathD}
             fill="none"
             stroke="#10B981"
             strokeWidth="0.5"
             strokeLinecap="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            className="animate-draw"
+            style={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}
           />
         </svg>
       </div>
@@ -69,27 +64,14 @@ export const ChartBackground: React.FC = () => {
       {/* Camada 3: Velas Flutuantes */}
       <div className="absolute inset-0 z-20">
         {candles.map((candle) => (
-          <motion.div
+          <div
             key={candle.id}
-            className="absolute bottom-0 w-[1px] bg-emerald-500/30"
+            className="absolute bottom-0 w-[1px] bg-emerald-500/30 animate-candle"
             style={{ 
               left: candle.left,
-              boxShadow: '0 0 8px rgba(16, 185, 129, 0.4)'
-            }}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ 
-              height: [
-                `${candle.height}px`, 
-                `${candle.height * 1.5}px`, 
-                `${candle.height * 0.8}px`
-              ],
-              opacity: [0, 0.5, 0] 
-            }}
-            transition={{
-              duration: candle.duration,
-              repeat: Infinity,
-              delay: candle.delay,
-              ease: "easeInOut",
+              boxShadow: '0 0 8px rgba(16, 185, 129, 0.4)',
+              animationDelay: candle.animationDelay,
+              animationDuration: candle.animationDuration
             }}
           />
         ))}
