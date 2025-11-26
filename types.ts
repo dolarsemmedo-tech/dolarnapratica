@@ -4,6 +4,7 @@ export interface SectionProps {
   id?: string;
   className?: string;
   children: ReactNode;
+  background?: ReactNode;
 }
 
 export interface AccordionItemProps {

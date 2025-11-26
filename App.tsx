@@ -25,7 +25,19 @@ function App() {
       <Reflection />
 
       {/* 4. Errors (Common Mistakes) */}
-      <Section className="bg-[#0B1221]">
+      <Section 
+        className="bg-[#0B1221]"
+        background={
+          <div 
+            className="absolute inset-0 w-full h-full opacity-[0.05] grayscale mix-blend-soft-light bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: 'url("https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=2071&auto=format&fit=crop")',
+            }}
+          >
+            <div className="absolute inset-0 bg-brand-dark/20"></div>
+          </div>
+        }
+      >
         <div className="text-center mb-12">
           <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">Cuidado</span>
           <h2 className="text-3xl font-bold mt-2:">Erros que atrapalham seu resultado:</h2>
@@ -39,7 +51,7 @@ function App() {
             "Não ter orientação experiente de quem já conquistou o imóvel no exterior.",
             "Procrastinar pensando que o câmbio ou política impedem o momento certo."
           ].map((error, i) => (
-             <div key={i} className="flex items-center gap-4 p-4 bg-red-950/10 border border-red-900/30 rounded-lg">
+             <div key={i} className="flex items-center gap-4 p-4 bg-red-950/10 border border-red-900/30 rounded-lg backdrop-blur-sm">
                 <XCircle className="text-red-500 shrink-0" size={20} />
                 <span className="text-slate-300">{error}</span>
              </div>
