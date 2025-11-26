@@ -61,7 +61,7 @@ function App() {
           ))}
         </div>
         <div className="flex justify-center mt-10 relative z-10">
-            <Button>Sim, quero resolver isso agora</Button>
+            <Button withIcon>Sim, quero resolver isso agora</Button>
         </div>
       </Section>
 
@@ -98,7 +98,7 @@ function App() {
         </div>
 
         <div className="flex justify-center mt-12 relative z-10">
-            <Button className="text-sm py-2 px-6">Sim, quero resolver isso agora</Button>
+            <Button withIcon className="text-sm py-2 px-6">Sim, quero resolver isso agora</Button>
         </div>
       </Section>
 
@@ -204,7 +204,7 @@ function App() {
             ))}
         </div>
         <div className="flex justify-center mt-12">
-            <Button className="text-sm">Sim, quero resolver isso agora</Button>
+            <Button withIcon className="text-sm">Sim, quero resolver isso agora</Button>
         </div>
       </Section>
 
