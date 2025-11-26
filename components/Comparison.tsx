@@ -1,6 +1,7 @@
 import React from 'react';
 import { Section } from './ui/Section';
 import { X, Check } from 'lucide-react';
+import { Button } from './ui/Button';
 
 export const Comparison: React.FC = () => {
   const withoutMethod = [
@@ -64,15 +65,7 @@ export const Comparison: React.FC = () => {
          <p className="text-slate-300 mb-6 text-lg leading-relaxed">
             Não perca mais tempo calculando o Custo da Oportunidade Perdida! A única forma de parar de ser refém da instabilidade brasileira é agir agora.
          </p>
-         <button 
-            className="text-blue-500 hover:text-blue-400 font-bold text-lg inline-flex items-center gap-2 transition-colors group"
-            onClick={() => {
-                const pricingSection = document.getElementById('pricing');
-                if (pricingSection) pricingSection.scrollIntoView({ behavior: 'smooth' });
-            }}
-         >
-            Sim, quero resolver isso agora <span className="group-hover:translate-x-1 transition-transform">→</span>
-         </button>
+         <Button>Sim, quero resolver isso agora</Button>
       </div>
     </Section>
   );
